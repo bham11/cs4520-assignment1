@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
 
 
     <EditText
@@ -13,8 +14,6 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:hint="@string/username"
-        android:backgroundTint="@color/teal_200"
-        android:textColor="@color/teal_200"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,12 +29,11 @@
         android:focusable="true"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:backgroundTint="@color/teal_200"
-        android:textColor="@color/teal_200"
         app:layout_constraintTop_toBottomOf="@+id/username"
         />
 
     <Button
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
