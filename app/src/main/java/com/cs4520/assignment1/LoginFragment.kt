@@ -1,0 +1,49 @@
+package com.cs4520.assignment1
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import com.cs4520.assignment1.databinding.FragmentLoginBinding
+
+
+
+class LoginFragment : Fragment(R.layout.fragment_login) {
+
+    private lateinit var binding: FragmentLoginBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.username.setOnClickListener {
+            binding.username.setTextColor(R.color.teal_200.toInt())
+        }
+
+
+        binding.password.setOnClickListener {
+            binding.password.setTextColor(R.color.teal_200.toInt())
+        }
+
+        binding.loginButton.setOnClickListener(View.OnClickListener {
+            if (binding.username.text.toString() == "admin" && binding.password.text.toString() == "admin") {
+                // move to the next page
+                Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+
+            } else {
+                Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
+    }
+}
