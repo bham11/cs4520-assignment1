@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -47,7 +48,12 @@ class ProductAdapter(private val dataSet: ArrayList<Product>) :
         when(dataSet[position]) {
             is Product.Equipment -> {
                 viewHolder.productName.text = dataSet[position].name
-                viewHolder.date.text = dataSet[position].expDate
+                viewHolder.date.isVisible = false
+                dataSet[position].expDate?.let {
+                    viewHolder.date.text = dataSet[position].expDate
+                    viewHolder.date.isVisible = true
+
+                }
                 viewHolder.price.text = dataSet[position].price.toString()
                 viewHolder.holder.setBackgroundColor(Color.parseColor("#E06666"))
                 viewHolder.imageView.setImageResource(R.drawable.equipment)
@@ -61,7 +67,6 @@ class ProductAdapter(private val dataSet: ArrayList<Product>) :
                 viewHolder.imageView.setImageResource(R.drawable.food)
 
             }
-//                viewHolder.imageView.setImageDrawable(R.drawable.equipment)
 
         }
 
