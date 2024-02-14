@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.root_container, LoginFragment())
+                    .add(R.id.fragmentContainerView, LoginFragment())
                     .commitAllowingStateLoss()
             }
         }

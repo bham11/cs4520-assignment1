@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.cs4520.assignment1.databinding.FragmentLoginBinding
 
 
@@ -38,6 +39,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             if (binding.username.text.toString() == "admin" && binding.password.text.toString() == "admin") {
                 // move to the next page
                 Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+
+
+
+                findNavController().navigate(R.id.action_loginFragment_to_productFragmentList)
+
 
             } else {
                 Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show()

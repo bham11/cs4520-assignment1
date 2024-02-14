@@ -8,5 +8,18 @@
         android:id="@+id/loginFragment"
         android:name="com.cs4520.assignment1.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_productFragmentList"
+            app:destination="@id/productFragmentList" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragmentList"
+        android:name="com.cs4520.assignment1.ProductFragmentList"
+        android:label="product_activity_layout"
+        tools:layout="@layout/product_activity_layout" >
+        <action
+            android:id="@+id/action_productFragmentList_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
