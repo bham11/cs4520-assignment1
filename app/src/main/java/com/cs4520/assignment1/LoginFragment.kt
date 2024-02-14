@@ -38,14 +38,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.loginButton.setOnClickListener(View.OnClickListener {
             if (binding.username.text.toString() == "admin" && binding.password.text.toString() == "admin") {
                 // move to the next page
-                Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT).show()
+                binding.username.text.clear()
+                binding.password.text.clear()
 
                 findNavController().navigate(R.id.action_loginFragment_to_productFragmentList)
 
 
             } else {
+                binding.password.text.clear()
                 Toast.makeText(requireContext(), "Login Failed", Toast.LENGTH_SHORT).show()
             }
         })

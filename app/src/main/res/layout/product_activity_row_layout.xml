@@ -19,7 +19,7 @@
         android:id="@+id/image"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:paddingRight="5dp"
+        android:paddingEnd="5dp"
         android:src="@drawable/equipment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/productName"
@@ -34,7 +34,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:text="Test"
+        android:text="@string/product_name"
+        android:textColor="@color/black"
 
         app:layout_constraintEnd_toEndOf="parent"
 
@@ -47,7 +48,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:text="Date"
+        android:text="@string/exp_date"
+        android:textColor="@color/black"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/image"
@@ -59,7 +61,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
-        android:text="Price"
+        android:text="@string/price"
+        android:textColor="@color/black"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/image"
