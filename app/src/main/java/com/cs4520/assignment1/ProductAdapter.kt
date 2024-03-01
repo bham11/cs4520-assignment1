@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 
-class ProductAdapter(private val dataSet: ArrayList<Product>) :
+class ProductAdapter(private val dataSet: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView
@@ -42,27 +42,23 @@ class ProductAdapter(private val dataSet: ArrayList<Product>) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        when(dataSet[position]) {
+        val product = dataSet[position]
+        viewHolder.productName.text = product.name
+        viewHolder.date.isVisible = false
+        product.expDate?.let {
+            viewHolder.date.text = product.expDate
+            viewHolder.date.isVisible = true
+        }
+        viewHolder.price.text = dataSet[position].price.toString()
+        when(product) {
             is Product.Equipment -> {
-                viewHolder.productName.text = dataSet[position].name
-                viewHolder.date.isVisible = false
-                dataSet[position].expDate?.let {
-                    viewHolder.date.text = dataSet[position].expDate
-                    viewHolder.date.isVisible = true
-
-                }
-                viewHolder.price.text = dataSet[position].price.toString()
                 viewHolder.holder.setBackgroundColor(Color.parseColor("#E06666"))
                 viewHolder.imageView.setImageResource(R.drawable.equipment)
 
             }
             is Product.Food -> {
-                viewHolder.productName.text = dataSet[position].name
-                viewHolder.date.text = dataSet[position].expDate
-                viewHolder.price.text = dataSet[position].price.toString()
                 viewHolder.holder.setBackgroundColor(Color.parseColor("#FFD965"))
                 viewHolder.imageView.setImageResource(R.drawable.food)
-
             }
         }
 

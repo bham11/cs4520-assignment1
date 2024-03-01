@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.navigation.fragment.NavHostFragment
 import com.cs4520.assignment1.databinding.MainActivityLayoutBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,12 +14,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_layout)
         if (savedInstanceState == null) {
+            val appHost = NavHostFragment.create(R.navigation.nav_graph)
+
             supportFragmentManager.commit {
                 supportFragmentManager.beginTransaction()
-                    .add(R.id.fragmentContainerView, LoginFragment())
-                    .add(R.id.fragmentContainerView, ProductFragmentList())
-                    .commitAllowingStateLoss()
-            }
-        }
-    }
+                    .replace(R.id.fragmentContainerView, appHost)
+                    .setPrimaryNavigationFragment(appHost)
+                    .commit()
+            }}}
 }

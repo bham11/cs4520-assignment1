@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
 import com.cs4520.assignment1.databinding.ProductActivityLayoutBinding
@@ -17,8 +18,8 @@ class ProductFragmentList : Fragment(R.layout.product_activity_layout) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.product_activity_layout, container, false)
+        binding = ProductActivityLayoutBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun buildProductsList(entries: List<List<Any?>>): ArrayList<Product> {
@@ -26,15 +27,19 @@ class ProductFragmentList : Fragment(R.layout.product_activity_layout) {
 
         for (list in entries) {
             if (list[1] == "Equipment") {
-                val product = Product.Equipment(name = list[0].toString(),
-                    expDate = list[2].toString(),
-                    price= list[3].toString())
+                val setPrice = list[3]
+                val product = Product.Equipment(
+                    name = list[0].toString(),
+                    expDate = list[2]?.toString(),
+                    price = "$$setPrice")
                 finalArray.add(product)
             }
             else {
-                val product = Product.Food(name = list[0].toString(),
-                    expDate = list[2].toString(),
-                    price= list[3].toString())
+                val setPrice = list[3]
+                val product = Product.Food(
+                    name = list[0].toString(),
+                    expDate = list[2]?.toString(),
+                    price = "$$setPrice")
                 finalArray.add(product)
             }
 
@@ -49,7 +54,8 @@ class ProductFragmentList : Fragment(R.layout.product_activity_layout) {
         val dataset = this.buildProductsList(productsDataset)
 
         val productsAdapter = ProductAdapter(dataset)
-        val recyclerView: RecyclerView = view.findViewById(R.id.product_recycler_view)
+        val recyclerView: RecyclerView = binding.productRecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
         recyclerView.adapter = productsAdapter
 
