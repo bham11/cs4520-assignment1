@@ -1,4 +1,4 @@
-package com.cs4520.assignment1
+package com.cs4520.assignment4
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -8,8 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-
-
 
 
 class ProductAdapter(private val dataSet: List<Product>) :

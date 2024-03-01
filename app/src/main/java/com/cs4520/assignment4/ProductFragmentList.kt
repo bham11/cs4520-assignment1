@@ -1,4 +1,4 @@
-package com.cs4520.assignment1
+package com.cs4520.assignment4
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
-import com.cs4520.assignment1.databinding.ProductActivityLayoutBinding
+import com.cs4520.assignment4.databinding.ProductActivityLayoutBinding
 
 class ProductFragmentList : Fragment(R.layout.product_activity_layout) {
 

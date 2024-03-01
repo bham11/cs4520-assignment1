@@ -1,4 +1,4 @@
-package com.cs4520.assignment1
+package com.cs4520.assignment4
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

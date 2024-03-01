@@ -1,4 +1,4 @@
-package com.cs4520.assignment1
+package com.cs4520.assignment4
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.cs4520.assignment1.databinding.FragmentLoginBinding
+import com.cs4520.assignment4.databinding.FragmentLoginBinding
 
 
 
