@@ -1,4 +1,4 @@
-package com.cs4520.assignment4
+package com.cs4520.assignment4.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
+import com.cs4520.assignment4.data.Product
+import com.cs4520.assignment4.R
 import com.cs4520.assignment4.databinding.ProductActivityLayoutBinding
+import com.cs4520.assignment4.data.productsDataset
 
 class ProductFragmentList : Fragment(R.layout.product_activity_layout) {
 
@@ -31,7 +34,8 @@ class ProductFragmentList : Fragment(R.layout.product_activity_layout) {
                 val product = Product.Equipment(
                     name = list[0].toString(),
                     expDate = list[2]?.toString(),
-                    price = "$$setPrice")
+                    price = "$$setPrice"
+                )
                 finalArray.add(product)
             }
             else {
@@ -39,7 +43,8 @@ class ProductFragmentList : Fragment(R.layout.product_activity_layout) {
                 val product = Product.Food(
                     name = list[0].toString(),
                     expDate = list[2]?.toString(),
-                    price = "$$setPrice")
+                    price = "$$setPrice"
+                )
                 finalArray.add(product)
             }
 
